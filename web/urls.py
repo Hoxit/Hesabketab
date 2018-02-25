@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     url(r'^submit/expense/$', views.submit_expense, name='Submit_expense'),
     url(r'^submit/income/$', views.submit_income, name='Submit_income'),
-    url(r'^accounts/register/$', views.register, name='Register')
+    url(r'^accounts/register/$', views.register, name='Register'),
+    url(r'^$', views.index, name='Index')
 
 ]

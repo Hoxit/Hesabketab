@@ -25,8 +25,6 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
-
-
 def grecaptcha_verify(request):
     data = request.POST
     captcha_rs = data.get('g-recaptcha-response')
@@ -39,7 +37,6 @@ def grecaptcha_verify(request):
     verify_rs = requests.get(url, params=params, verify=True)
     verify_rs = verify_rs.json()
     return verify_rs.get("success", False)
-
 
 def register(request):
     if request.POST.has_key(
@@ -128,7 +125,6 @@ def register(request):
         context = {'message': ''}
         return render(request, 'register.html', context)
 
-
 @csrf_exempt
 def submit_expense(request):
     #TODO;valitaion fake amout , validation fake user and valitaion fake ...
@@ -144,6 +140,7 @@ def submit_expense(request):
      },encoder=JSONEncoder)
 
 def submit_income(request):
+
     #TODO;valitaion fake amout , validation fake user and valitaion fake ...
 
     this_token = request.POST['token']
@@ -155,3 +152,7 @@ def submit_income(request):
     return JsonResponse({
         "status" : "O.K",
      },encoder=JSONEncoder)
+
+def index(request):
+    context={}
+    return(render(request,'index.html',context))
