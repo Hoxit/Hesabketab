@@ -1,0 +1,4 @@
+[cli]
+bears = SpaceConsistencyBear,PEP8Bear
+files = **/*.py
+use_spaces = True
