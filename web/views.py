@@ -80,8 +80,8 @@ def register(request):
                 sender="yousefihossein74@gmail.com",
                 to=email,
                 text_body=
-                "برای فعال سازی ایمیلی  حساب کتاب خود روی لینک روبرو کلیک کنید: http://127.0.0.1/accounts/register/?email={}&code={}".
-                format(email, code),
+                "برای فعال سازی ایمیلی  حساب کتاب خود روی لینک روبرو کلیک کنید: {}?email={}&code={}".
+                format(request.build_absolute_uri('/accounts/register'), email, code),
                 tag="Create account")
             message.send()
             context = {
